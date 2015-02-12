@@ -1,3 +1,35 @@
+//  
+//     Copyright (C) 2015 Alejandro Almira <al3x2450@gmail.com>
+//
+//     This program is free software: you can redistribute it and/or modify
+//     it under the terms of the GNU General Public License as published by
+//     the Free Software Foundation, either version 3 of the License, or
+//     any later version.
+//
+//     This program is distributed in the hope that it will be useful,
+//     but WITHOUT ANY WARRANTY; without even the implied warranty of
+//     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//     GNU General Public License for more details.
+//
+//     You should have received a copy of the GNU General Public License
+//     along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+//  
+//     Copyright (C) 2015 Alejandro Almira <al3x2450@gmail.com>
+//
+//     This program is free software: you can redistribute it and/or modify
+//     it under the terms of the GNU General Public License as published by
+//     the Free Software Foundation, either version 3 of the License, or
+//     any later version.
+//
+//     This program is distributed in the hope that it will be useful,
+//     but WITHOUT ANY WARRANTY; without even the implied warranty of
+//     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+//     GNU General Public License for more details.
+//
+//     You should have received a copy of the GNU General Public License
+//     along with this program. If not, see <http://www.gnu.org/licenses/>.
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -47,7 +79,15 @@ public class Main extends javax.swing.JFrame {
         jLabelModeloHoras = new javax.swing.JLabel();
         jTextFieldModeloHoras = new javax.swing.JTextField();
         jLabelModeloCoste = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldCosteHora = new javax.swing.JTextField();
+        jLabelHorasImpresion = new javax.swing.JLabel();
+        jLabelHImpre = new javax.swing.JLabel();
+        jTextFieldHImpLuz = new javax.swing.JTextField();
+        jLabelHoraLuz = new javax.swing.JLabel();
+        jTextFieldHICoste = new javax.swing.JTextField();
+        jLabelTitleFA = new javax.swing.JLabel();
+        jTextFieldFA = new javax.swing.JTextField();
+        jLabelFA = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Plastic Calculator");
@@ -64,7 +104,7 @@ public class Main extends javax.swing.JFrame {
 
         jLabelLongitud.setText("Longitud (mm)");
 
-        jLabelKg.setText("Coste por kg");
+        jLabelKg.setText("Coste por kg (€)");
 
         jButtonCalcular.setText("Calcular");
         jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +134,21 @@ public class Main extends javax.swing.JFrame {
 
         jLabelModeloCoste.setText("Coste Hora (€)");
 
-        jTextField1.setText("30");
+        jTextFieldCosteHora.setText("30");
+
+        jLabelHorasImpresion.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelHorasImpresion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelHorasImpresion.setText("Coste Luz");
+
+        jLabelHImpre.setText("Horas Impresion");
+
+        jLabelHoraLuz.setText("Precio Hora (€)");
+
+        jLabelTitleFA.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelTitleFA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitleFA.setText("Factor Amistad");
+
+        jLabelFA.setText("Multiplicar el precio total * FA");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,41 +158,56 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelMaterial)
-                            .addComponent(jComboBoxPlastic, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelDiametro)
-                            .addComponent(jLabelCantidad)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabelHorasImpresion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelMaterial, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jComboBoxPlastic, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelDiametro, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelTitlePlastic, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldDiametro, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldCantidad))
+                                        .addComponent(jLabelCantidad))
+                                    .addGap(27, 27, 27)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldLongitud)
+                                        .addComponent(jLabelLongitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabelKg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldKg))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldDiametro, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(27, 27, 27)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldLongitud)
-                                    .addComponent(jLabelLongitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabelKg)
-                                    .addComponent(jTextFieldKg)))
-                            .addComponent(jLabelTitlePlastic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelHImpre)
+                                    .addComponent(jTextFieldHImpLuz, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelHoraLuz)
+                                    .addComponent(jTextFieldHICoste, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabelModeloB)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelModeloHoras)
-                                        .addComponent(jTextFieldModeloHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelModeloCoste)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabelTitleModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 7, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelModeloHoras)
+                                    .addComponent(jTextFieldModeloHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelModeloCoste)
+                                    .addComponent(jTextFieldCosteHora, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabelTitleModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTitleFA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jLabelFA))
+                            .addComponent(jTextFieldFA))
+                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jButtonCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,12 +237,26 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jTextFieldDiametro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldKg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldModeloHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCosteHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabelCantidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHorasImpresion)
+                    .addComponent(jLabelTitleFA))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelHImpre)
+                    .addComponent(jLabelHoraLuz)
+                    .addComponent(jLabelFA))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldHImpLuz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldHICoste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldFA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButtonCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -217,16 +300,28 @@ public class Main extends javax.swing.JFrame {
         double price = (kg / 1000) * weight;
         //Box b = new Box(5);
         //System.out.println("Diametro: " + diameter + "\nMaterial: " + mater + "\nLongitud: " + length);
+        
+        double priceLight = new Double(jTextFieldHImpLuz.getText()) * new Double(jTextFieldHICoste.getText());
+        double factorA = new Double(jTextFieldFA.getText());
+        double total = (price + priceLight)* factorA;
+        
+        
+        double priceModel = new Double(jTextFieldModeloHoras.getText()) * new Double(jTextFieldCosteHora.getText());
+        
+        
+        
         Result r = new Result();
         String resultado = "";
         DecimalFormat df = new DecimalFormat("####.##");
         if (cantidad == 1) {
-            resultado = "Tipo de material: " + mater + "\n\nEstadisticas para el objeto:\n----------------------------\nPeso: " + df.format(weight) + " gramos\nCoste: " + df.format(price) + " €\nObjetos imprimibles por kilo: " + df.format(1000 / weight);
+            resultado = "Precio plastico: "+df.format(price)+"€\nPrecio modelo :" + df.format(priceModel)+"€\nPrecio Electricidad: " + df.format(priceLight)+"€\n------------------------------------\nCoste para mi:" + df.format(total)+"€\nCoste para cliente:" + df.format(total)+"€";
+            //resultado = "Tipo de material: " + mater + "\n\nEstadisticas para el objeto:\n----------------------------\nPeso: " + df.format(weight) + " gramos\nCoste: " + df.format(price) + " €\nObjetos imprimibles por kilo: " + df.format(1000 / weight);
             
         } else {
-            resultado = "Tipo de material: " + mater + "\nCantidad: "+cantidad+"\n\nEstadisticas para un objeto:\n----------------------------\nPeso: " + df.format(weight) + " gramos\nCoste: " + df.format(price) + " €\nObjetos imprimibles por kilo: " + df.format(1000 / weight)+"\n\nEstadisticas para " + cantidad + " objetos:\n----------------------------\nPeso total ("+cantidad+" objetos): " + df.format(weight*(double)cantidad)+" gramos\nPrecio total ("+cantidad+" objetos): "+df.format(price*(double)cantidad)+ " €";
-            //Display a message box with the results for multiple items
-            //System.out.println("Material type: %s\nQuantity: %d\n\nStatistics for single object:\n----------------------------\nUnit Weight: %4.4f grams\nUnit Cost: $%4.2f\nObjects printable per Kg: %4.1f\n\nStatistics for %d objects\n----------------------------\nTotal Weight(%d objects): %4.4f grams\nTotal Cost(%d objects): $%4.2f", mat, quantity, weight, price, 1000 / weight, quantity, quantity, weight * (float) quantity, quantity, price * (float) quantity);
+            resultado = "Tipo de material: " + mater + "\nCantidad: "+cantidad+"\n\nEstadisticas plastico:\n----------------------------\nPeso: " + df.format(weight) + " gramos" + "\nObjetos imprimibles por kilo: " + df.format(1000 / weight) + "\nCoste: " + df.format(price)+"€";
+            resultado += "\n\nEstadisticas luz:\n----------------------------\n" + "Precio Luz: " + df.format(priceLight) + " €\n";
+            resultado += "\n\nEstadisticas Modelo:\n----------------------------\n"+"Coste Modelo: " + df.format(priceModel) + " €\nCoste por pieza: "+df.format(priceModel/cantidad) + " €";
+            resultado += "\n\nEstadisticas Precio:\n----------------------------\n"+"Coste pieza: " + df.format(total+priceModel/cantidad) + " €\nCoste total: "+df.format(total *cantidad+priceModel) + " €";
         }
         r.setText(resultado);
         r.setVisible(true);
@@ -239,7 +334,7 @@ public class Main extends javax.swing.JFrame {
                 jTextFieldModeloHoras.setEditable(true);
                 break;
             case 1:
-                jTextFieldModeloHoras.setText("1");
+                jTextFieldModeloHoras.setText("0");
                 jTextFieldModeloHoras.setEditable(false);
                 break;
         }
@@ -286,17 +381,25 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBoxPlastic;
     private javax.swing.JLabel jLabelCantidad;
     private javax.swing.JLabel jLabelDiametro;
+    private javax.swing.JLabel jLabelFA;
+    private javax.swing.JLabel jLabelHImpre;
+    private javax.swing.JLabel jLabelHoraLuz;
+    private javax.swing.JLabel jLabelHorasImpresion;
     private javax.swing.JLabel jLabelKg;
     private javax.swing.JLabel jLabelLongitud;
     private javax.swing.JLabel jLabelMaterial;
     private javax.swing.JLabel jLabelModeloB;
     private javax.swing.JLabel jLabelModeloCoste;
     private javax.swing.JLabel jLabelModeloHoras;
+    private javax.swing.JLabel jLabelTitleFA;
     private javax.swing.JLabel jLabelTitleModelo;
     private javax.swing.JLabel jLabelTitlePlastic;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCantidad;
+    private javax.swing.JTextField jTextFieldCosteHora;
     private javax.swing.JTextField jTextFieldDiametro;
+    private javax.swing.JTextField jTextFieldFA;
+    private javax.swing.JTextField jTextFieldHICoste;
+    private javax.swing.JTextField jTextFieldHImpLuz;
     private javax.swing.JTextField jTextFieldKg;
     private javax.swing.JTextField jTextFieldLongitud;
     private javax.swing.JTextField jTextFieldModeloHoras;
